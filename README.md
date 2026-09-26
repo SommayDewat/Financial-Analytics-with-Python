@@ -11,7 +11,9 @@
 [![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Plots-4C72B0)](https://seaborn.pydata.org/)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-Machine%20Learning-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 
-**A five-week learning project focused on preparing, exploring, visualizing, forecasting, and analyzing financial data with Python.**
+**A five-week applied project covering financial analytics fundamentals, data preparation, exploratory analysis, forecasting, and professional reporting using Python.**
+
+[Project Repository](https://github.com/SommayDewat/Financial-Analytics-with-Python) · [Author Profile](https://github.com/SommayDewat)
 
 </div>
 
@@ -19,144 +21,90 @@
 
 ## 📌 Project Overview
 
-This repository documents my work for the **Junior Data Analyst – Financial Analytics with Python** internship. It follows a structured analytical workflow, beginning with financial analytics fundamentals and progressing through data preparation, exploratory data analysis (EDA), visualization, forecasting, and reporting.
+This repository contains my **Junior Data Analyst – Financial Analytics with Python** internship work. Across five weeks, I followed an end-to-end analytical workflow: understanding financial analytics, setting up a Python environment, preparing and validating a simulated stock-market dataset, performing exploratory data analysis (EDA), building and evaluating a next-day closing-price forecasting baseline, and consolidating findings into a final report.
 
-The project uses a **simulated stock-market dataset** for practice. The dataset is synthetic and should not be interpreted as actual market data or investment advice.
+> **Dataset disclaimer:** The stock-market data used in this project is simulated/synthetic. Findings and model scores are for learning and demonstration only; they do not represent real market behavior or investment advice.
 
-## 🎯 Project Objectives
+## 🗺️ Project Roadmap
 
-- Build a foundation in financial analytics and analytical methods.
-- Prepare and validate structured financial datasets using Pandas.
-- Explore distributions, trends, relationships, and potential anomalies.
-- Build and evaluate a baseline and a machine-learning forecasting model.
-- Communicate findings through clear statistical summaries, visualizations, and reports.
-- Maintain reproducible notebooks, scripts, datasets, and reports.
-
-## 🗂️ Internship Roadmap
-
-| Week | Focus | Status |
-|---|---|---|
-| **Week 1** | Financial Analytics Orientation & Python Setup | Completed |
-| **Week 2** | Data Preparation & Cleaning | Completed |
-| **Week 3** | Exploratory Data Analysis & Visualization | Completed |
-| **Week 4** | Financial Forecasting & Model Evaluation | Completed |
-| **Week 5** | Final Analysis & Reporting | Upcoming |
-
-> **Progress note:** Weeks 1–4 have been completed and documented. Week 5 is the remaining stage of the internship workflow.
+| Week | Topic | Main Deliverables | Status |
+|---|---|---|---|
+| 1 | Financial Analytics Orientation & Python Setup | Orientation report, setup notebook, and setup screenshots | Completed |
+| 2 | Data Preparation & Cleaning | Raw and cleaned CSVs, cleaning notebook, validation scripts, and report | Completed |
+| 3 | Exploratory Data Analysis & Visualization | EDA notebook, summary outputs, charts, and report | Completed |
+| 4 | Financial Forecasting & Model Evaluation | Forecasting notebook, predictions, metrics, diagnostic plots, and report | Completed |
+| 5 | Comprehensive Financial Analytics Report | Consolidated report and recommendations | Completed |
 
 ---
 
-## 🔎 Week 1 — Financial Analytics Orientation
+## ✨ Project Highlights
 
-### Objective
-Establish a foundation in financial analytics and configure a reproducible Python environment for the remaining tasks.
+- Cleaned and validated a simulated dataset from **503 raw rows to 499 analysis-ready rows**.
+- Explored closing-price and daily-return distributions, OHLC relationships, volume behavior, and potential outliers.
+- Created a next-observation closing-price target and prepared **497 modeling rows**.
+- Used a chronological split of **397 training rows and 100 test rows**.
+- Compared a current-close Naive Baseline with Linear Regression using MAE, RMSE, and R².
+- Organized notebooks, scripts, datasets, charts, and reports by project week.
 
-### Work Completed
-- Researched financial analytics fundamentals, financial statements, indicators, and common analysis methods.
-- Set up Python **3.10.11** and a project-specific virtual environment.
-- Installed and tested the core data-analysis libraries.
-- Verified the environment in VS Code and Jupyter Notebook.
-- Documented setup steps, challenges, and a workflow for subsequent tasks.
+## 📈 Key Findings
 
-### Output
-- Financial analytics orientation report and Python environment setup documentation.
+### Exploratory Data Analysis
 
----
+| Metric | Finding |
+|---|---:|
+| Cleaned dataset size | 499 rows |
+| Mean closing price | ~123.05 |
+| Median closing price | 122.30 |
+| Closing-price range | 87.28–166.35 |
+| Average daily return | ~0.094% |
+| Daily-return range | ~−3.893% to 5.246% |
 
-## 🧹 Week 2 — Data Preparation & Cleaning
+OHLC variables showed strong relationships in this simulated dataset. Trading volume had a weak linear relationship with closing price. IQR screening identified potential daily-return outliers for review; an outlier flag alone does not establish that a record is erroneous.
 
-### Objective
-Prepare a simulated stock-market dataset for analysis by identifying and handling data-quality issues.
-
-### Dataset
-The raw stock-market dataset contains **503 rows** and includes deliberately introduced quality issues for cleaning practice. After cleaning and validation, the analysis-ready dataset contains **499 rows**.
-
-**Main fields:** `Date`, `Open`, `High`, `Low`, `Close`, and `Volume`.
-
-### Cleaning Workflow
-- Inspected data types, missing values, duplicate records, and inconsistent entries.
-- Converted fields to appropriate data types and handled invalid dates.
-- Removed duplicate rows and addressed missing values.
-- Corrected invalid volume and OHLC records.
-- Created derived features: `Price_Change` and `Daily_Return_Pct`.
-- Validated the cleaned data for missing values, duplicates, negative volume, and OHLC consistency.
-
-### Outputs
-- Raw and cleaned CSV datasets
-- Python scripts for dataset generation, assessment, cleaning, and validation
-- Jupyter Notebook and Word report
-
----
-
-## 📈 Week 3 — Exploratory Data Analysis & Visualization
-
-### Objective
-Use descriptive statistics and visual analysis to understand the simulated stock-market dataset's behavior, relationships, and potential outliers.
-
-### Analysis Performed
-- Reviewed dataset structure, date coverage, data types, and missing values.
-- Calculated descriptive statistics such as mean, median, standard deviation, quartiles, minimum, and maximum.
-- Examined correlations among OHLC prices, trading volume, price change, and daily returns.
-- Applied the IQR method to identify potential outliers in closing prices and daily returns.
-
-### Visualizations
-- Closing-price time-series line chart
-- Closing-price distribution histogram
-- Daily-return distribution histogram
-- Trading-volume distribution histogram
-- Trading-volume trend over time
-- Trading volume vs. closing-price scatter plot
-- Box plots for closing prices and daily returns
-- Correlation heatmap
-
-### Preliminary Findings
-Based on the simulated dataset:
-
-- The closing price has a mean of approximately **123.05** and a median of **122.30**.
-- Closing prices range from **87.28 to 166.35**.
-- The average daily return is approximately **0.094%**; observed daily returns range from about **−3.893% to 5.246%**.
-- OHLC variables are very strongly correlated in this dataset, while trading volume has a weak linear relationship with closing price.
-- The IQR check identifies several daily-return observations outside the calculated bounds. These are potential statistical outliers, not automatically data errors.
-
-These findings describe the simulated dataset only and do not represent real-world market behavior.
-
----
-
-## 🤖 Week 4 — Financial Forecasting & Model Evaluation
-
-### Objective
-Develop and evaluate a next-day closing-price forecasting workflow using the cleaned simulated stock-market dataset.
-
-### Dataset & Preparation
-- Used the Week 3 cleaned dataset containing **499 rows** and 8 columns.
-- Checked data quality and handled the remaining missing values in `Price_Change` and `Daily_Return_Pct` for modeling.
-- Created the target variable, `Target_Next_Day_Close`, by shifting the `Close` price forward by one row.
-- Prepared **497 modeling rows** after target creation and removal of rows without a valid next-day target.
-- Used a chronological train-test split: **397 training rows** and **100 test rows**.
-
-### Models Evaluated
-1. **Naive baseline:** Uses the current closing price as the next-day closing-price estimate.
-2. **Linear Regression:** Uses `Open`, `High`, `Low`, `Close`, `Volume`, `Price_Change`, and `Daily_Return_Pct` as input features to estimate the next-day close.
-
-### Evaluation Metrics
+### Forecasting Evaluation
 
 | Model | MAE | RMSE | R² |
 |---|---:|---:|---:|
 | Naive Baseline (current close) | 1.2784 | 1.5876 | 0.8718 |
 | Linear Regression | 1.3218 | 1.6241 | 0.8658 |
 
-**Interpretation:** On this test set, the naive baseline produced slightly lower MAE and RMSE and a slightly higher R² than Linear Regression. This indicates that the trained model did not outperform simply using the current close as the next-day estimate in this experiment.
+**Result:** On the documented test split, the Naive Baseline had lower MAE and RMSE and a higher R² than Linear Regression. These scores apply only to this synthetic dataset and split. Feature availability and possible look-ahead leakage should be checked before treating the workflow as a valid real-time forecasting setup.
 
-### Outputs
-- Forecasting notebook: `Week_4/notebooks/Week_4_Financial_Forecasting.ipynb`
-- Prediction results: `Week_4/outputs/forecast_predictions.csv`
-- Model metrics: `Week_4/outputs/model_evaluation_metrics.csv`
-- Actual vs. predicted chart: `Week_4/visualizations/actual_vs_predicted.png`
-- Residual chart: `Week_4/visualizations/model_residuals.png`
-- Forecasting report: `Week_4/reports/Week_4_Financial_Forecasting_Model_Report.docx`
+---
 
-### Limitations
-The dataset is synthetic and the results are educational rather than financial guidance. The feature set includes same-day OHLC values and derived variables; whether these inputs are available at the intended forecast time must be considered. The evaluation does not establish that the model will generalize to real market data.
+## 📚 Weekly Work Summary
+
+### Week 1 — Financial Analytics Orientation & Python Setup
+- Reviewed financial analytics concepts and common financial data analysis approaches.
+- Set up Python **3.10.11**, a project virtual environment, and the analysis libraries.
+- Verified Python, package installation, Jupyter, and the project structure.
+- **Files:** [Notebook](Week_1/notebooks/Week_1_Financial_Analytics_Analysis.ipynb) · [Orientation Report](Week_1/reports/Week_1_Financial_Analytics_Orientation_Report.docx)
+- Setup evidence is stored in `Week_1/screenshots/`.
+
+### Week 2 — Data Preparation & Cleaning
+- Inspected the raw dataset and performed data-quality checks.
+- Cleaned and validated the dataset and generated derived fields such as `Price_Change` and `Daily_Return_Pct`.
+- Organized raw and cleaned data, reusable Python scripts, a notebook, and a written report.
+- **Files:** [Cleaning Notebook](Week_2/notebooks/Week_2_Data_Cleaning.ipynb) · [Cleaned Dataset](Week_2/data/cleaned/stock_market_cleaned.csv) · [Report](Week_2/reports/Week_2_Data_Preparation_and_Cleaning_Report.docx)
+
+### Week 3 — Exploratory Data Analysis & Visualization
+- Calculated descriptive statistics and examined price movements and return distributions.
+- Analyzed correlations among OHLC variables and the relationship between volume and closing price.
+- Used IQR-based screening to flag potential outliers.
+- Created price, return, volume, distribution, and relationship visualizations.
+- **Files:** [EDA Notebook](Week_3/notebooks/Week_3_EDA_and_Financial_Visualization.ipynb) · [Visualizations](Week_3/visualizations/) · [Report](Week_3/reports/)
+
+### Week 4 — Financial Forecasting & Model Evaluation
+- Created `Target_Next_Day_Close` by shifting the `Close` series by one observation.
+- Prepared 497 modeling rows and applied a chronological 397/100 train-test split.
+- Compared a current-close Naive Baseline with Linear Regression.
+- Exported predictions, model metrics, and diagnostic plots.
+- **Files:** [Forecasting Notebook](Week_4/notebooks/Week_4_Financial_Forecasting.ipynb) · [Predictions](Week_4/outputs/forecast_predictions.csv) · [Metrics](Week_4/outputs/model_evaluation_metrics.csv) · [Report](Week_4/reports/Week_4_Financial_Forecasting_Model_Report.docx)
+
+### Week 5 — Comprehensive Report & Recommendations
+- Consolidated the project workflow, key findings, evaluation results, and limitations.
+- Summarized practical recommendations for data quality, time-aware validation, feature timing, and responsible model use.
+- **File:** [Week 5 Comprehensive Report](Week_5/reports/Week_5_Comprehensive_Financial_Analytics_Report_Professional.docx)
 
 ---
 
@@ -164,57 +112,97 @@ The dataset is synthetic and the results are educational rather than financial g
 
 | Tool | Purpose |
 |---|---|
-| **Python 3.10.11** | Programming and analysis |
-| **Pandas** | Data loading, cleaning, transformation, and summary statistics |
-| **NumPy** | Numerical operations |
-| **Matplotlib** | Chart creation |
-| **Seaborn** | Statistical visualization and correlation heatmaps |
-| **SciPy** | Statistical analysis tools |
-| **Scikit-learn** | Linear Regression and model evaluation |
-| **Jupyter Notebook** | Interactive analysis and documentation |
-| **VS Code** | Development environment |
-| **Git & GitHub** | Version control and project sharing |
+| Python 3.10.11 | Programming and analysis |
+| Pandas | Data loading, cleaning, transformation, and summaries |
+| NumPy | Numerical operations |
+| Matplotlib & Seaborn | Data visualization |
+| SciPy | Statistical analysis tools |
+| Scikit-learn | Regression and model evaluation |
+| Jupyter Notebook | Interactive analysis |
+| VS Code | Development environment |
+| Git & GitHub | Version control and project sharing |
 
 ---
 
-## 📁 Repository Structure
+## 🗂️ Repository Structure
+
+The structure below follows the folders and filenames visible in the project workspace screenshots. The `.venv/` directory is local environment content and is typically excluded from version control.
 
 ```text
 Financial-Analytics-with-Python/
-│
+├── .venv/                              # Local Python virtual environment
 ├── Week_1/
-│   └── reports/
-│
+│   ├── notebooks/
+│   │   └── Week_1_Financial_Analytics_Analysis.ipynb
+│   ├── reports/
+│   │   └── Week_1_Financial_Analytics_Orientation_Report.docx
+│   └── screenshots/
+│       ├── 01_python_environment_verification.png
+│       ├── 02_pip_upgrade.png
+│       ├── 03_library_verification.png
+│       ├── 04_jupyter_verification.png
+│       ├── 05_project_structure.png
+│       ├── 06_vscode_jupyter_kernel_verification.png
+│       └── 07_notebook_library_verification.png
 ├── Week_2/
 │   ├── data/
-│   │   ├── raw/
-│   │   └── cleaned/
+│   │   ├── cleaned/
+│   │   │   └── stock_market_cleaned.csv
+│   │   └── raw/
+│   │       └── stock_market_raw.csv
 │   ├── notebooks/
+│   │   └── Week_2_Data_Cleaning.ipynb
 │   ├── outputs/
+│   │   ├── assess_raw_data.py
+│   │   ├── clean_financial_data.py
+│   │   ├── generate_raw_dataset.py
+│   │   └── validate_cleaned_data.py
 │   └── reports/
-│
+│       └── Week_2_Data_Preparation_and_Cleaning_Report.docx
 ├── Week_3/
 │   ├── data/
+│   │   └── stock_market_cleaned.csv
 │   ├── notebooks/
+│   │   └── Week_3_EDA_and_Financial_Visualization.ipynb
 │   ├── outputs/
+│   │   ├── final_correlation_matrix.csv
+│   │   └── final_statistical_summary.csv
 │   ├── reports/
+│   │   └── Week_3_Exploratory_Data_Analysis_and_Visualization_Report.docx
 │   └── visualizations/
-│
+│       ├── closing_price_boxplot.png
+│       ├── closing_price_histogram.png
+│       ├── closing_price_trend.png
+│       ├── daily_returns_boxplot.png
+│       ├── daily_returns_histogram.png
+│       ├── daily_volume_trend.png
+│       ├── volume_distribution.png
+│       └── volume_vs_closing_price.png
 ├── Week_4/
 │   ├── data/
+│   │   └── stock_market_cleaned.csv
 │   ├── notebooks/
+│   │   └── Week_4_Financial_Forecasting.ipynb
 │   ├── outputs/
+│   │   ├── forecast_predictions.csv
+│   │   └── model_evaluation_metrics.csv
 │   ├── reports/
+│   │   └── Week_4_Financial_Forecasting_Model_Report.docx
+│   ├── scripts/
 │   └── visualizations/
-│
-├── requirements.txt
+│       ├── actual_vs_predicted.png
+│       └── model_residuals.png
+├── Week_5/
+│   └── reports/
+│       └── Week_5_Comprehensive_Financial_Analytics_Report_Professional.docx
 ├── .gitignore
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 
 ---
 
-## ⚙️ Getting Started
+## 🚀 Getting Started
 
 ### 1. Clone the repository
 
@@ -223,9 +211,7 @@ git clone https://github.com/SommayDewat/Financial-Analytics-with-Python.git
 cd Financial-Analytics-with-Python
 ```
 
-### 2. Create and activate a virtual environment
-
-**Windows PowerShell:**
+### 2. Create and activate a virtual environment (Windows PowerShell)
 
 ```powershell
 python -m venv .venv
@@ -234,48 +220,45 @@ python -m venv .venv
 
 ### 3. Install dependencies
 
-If `requirements.txt` is available and up to date:
-
-```bash
+```powershell
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 4. Open the notebooks
+### 4. Open the project
 
-Open the relevant `.ipynb` file in VS Code or Jupyter Notebook and run the cells in order. Confirm that the notebook's dataset paths match the repository folder structure.
-
----
-
-## 📄 Deliverables
-
-The repository contains project materials organized by week, including:
-
-- Jupyter notebooks for analysis and modeling
-- Python scripts for repeatable data-processing steps
-- Raw and cleaned datasets
-- Visualizations and statistical/model-evaluation outputs
-- Word reports documenting methods, results, and interpretations
+Open the repository folder in VS Code. Launch the relevant `.ipynb` notebook and run its cells in order. Confirm that any data paths in the notebook are relative to the repository root and that the required dataset is present.
 
 ---
 
-## ⚠️ Data & Interpretation Note
+## 🔍 Recommendations & Next Steps
 
-The stock-market data used for the cleaning, EDA, and forecasting exercises is **simulated**. Statistical relationships and model performance are specific to the generated dataset. Correlation does not establish causation. The analysis is for educational purposes only and is not financial or investment advice.
+1. **Document outlier decisions:** Include the IQR thresholds, flagged records, and rationale for retaining, correcting, or excluding any observations. The exact thresholds and flagged-row details are not reproduced here because they were not available in the verified project summary.
+2. **Use time-aware validation:** Evaluate forecasting models with rolling- or expanding-window validation in addition to a chronological holdout.
+3. **Check feature timing:** Ensure every feature would be available at the actual forecast timestamp. Same-day High, Low, Close, and derived fields may introduce look-ahead leakage depending on the prediction setup.
+4. **Compare with simple baselines:** Keep a clearly defined naive baseline when testing more complex forecasting approaches.
+5. **Improve reproducibility:** Record dataset-generation assumptions, package versions, validation rules, and run instructions.
+
+## ⚠️ Limitations & Responsible Use
+
+- The dataset is simulated/synthetic, not live market data.
+- Model results are based on one chronological holdout split and do not establish generalization to real markets.
+- Feature timing needs review to rule out potential look-ahead leakage.
+- Outlier flags indicate observations for investigation; they do not automatically mean data errors.
+- This project is educational and is not financial or investment advice.
 
 ---
 
 ## 👤 Author
 
 **Sommay Dewat**  
-Junior Data Analyst Internship Project
+Junior Data Analyst | Financial Analytics with Python
 
 - **GitHub:** [SommayDewat](https://github.com/SommayDewat)
 - **Project Repository:** [Financial Analytics with Python](https://github.com/SommayDewat/Financial-Analytics-with-Python)
 
----
-
 <div align="center">
 
-**Learning through data • Exploring with Python • Communicating insights**
+**Data preparation · Exploratory analysis · Forecasting · Evidence-based reporting**
 
 </div>
